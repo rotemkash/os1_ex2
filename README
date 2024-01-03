@@ -1,0 +1,45 @@
+File: ex2a.c
+ ========================================
+ Writen by: Rotem Kashani , id = 209073352 , login = rotemkash 
+	   Mahmood Jazmawy , id= 211345277, login=Mahmoodja
+This program runs in a loop, 10 times. each run starts after the user hits enter.
+then the user has one second to enter a positive numberif the user enters a number 
+the program prints it then it loops again.if the user doesn't manage to enter a 
+number in one second the program print "):".After the program is done it prints how many
+numbers the user managed to enter and the maximum number the user entered.
+ 
+Compile: gcc ex2a.c -Wall -o ex2a
+
+Run: ex2a
+
+
+File: ex2b.c 
+ ========================================
+ Writen by: Rotem Kashani , id = 209073352 , login = rotemkash 
+	   Mahmood Jazmawy , id= 211345277, login=Mahmoodja
+
+In this program the father gives birth to a child. 
+Before it gives birth to a child, it sets a signal handler that will be 
+activated when the signals SIGUSR1, SIGUSR2 are sent to the process.
+Now in an infinite loop each of them: 
+a.Goes to sleep for a random amount of time of at most 2 seconds.
+b.Grills a number between 0 and 100 including 0 and including 100.
+c.If he grills a thousand numbers >= 95, he announces: I win, 
+sends the SIGUSR1 signal to the second process and finishes.
+d.If he grills sixty thousand numbers < 55, he announces: I lose, 
+sends the SIGUSR2 signal to the second process and finishes.
+Each of the two processes in the signal handler performs:
+A. If received SIGUSR1 notifies: congrats! Shows how many 
+numbers >= 95 and how many numbers < 55 is the grill and finishes.
+B. If received the SIGUSR2 informs: thanks! Shows how many 
+numbers >= 95 and how many numbers < 55 is the grill and finishes
+possible race modes between the father and son:
+1: the father wins or loses and completes all the prints then it exits the program.
+2: the son wins/loses and completes all of it’s prints, kills the process and exits.
+3: the father and son win/lose at the same time so one of them prints
+“I win”/ “I lose” but doesn’t get enough time to kill the process so
+ other one prints and kills the process
+
+Compile: gcc ex2b.c -Wall -o ex2b
+
+Run: ex2b
